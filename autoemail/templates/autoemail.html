@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Layout</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Jost', sans-serif;
+            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+        }
+
+        div {
+            height:650px;
+            width: 1412px;
+            border: 2px solid black;
+            border-radius:10px;
+            padding: 50px;
+            margin: 20px;
+            background-color: white; /* Added this to ensure visibility */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center form elements horizontally */
+            width: 100%; /* Optional: Makes the form take up available space */
+        }
+
+        input, textarea, button {
+            width: 50%; /* Adjust the width as needed */
+            margin: 5px ; /* Add spacing between elements */
+            padding: 10px;
+            font-size: 16px;
+            
+        }
+        button {
+            width: 100px;
+			height: 40px;
+			margin: 10px auto;
+			justify-content: center;
+			display: block;
+			color: #fff;
+			background: #573b8a;
+			font-size: 1em;
+			font-weight: bold;
+			margin-top: 30px;
+			outline: none;
+			border: none;
+			border-radius: 5px;
+			
+			cursor: pointer;
+        }
+
+        button:hover {
+            background: #6d44b8;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="email" name="sender_email" placeholder="Sender Email" required="">
+        <input type="email" name="receiver_email" placeholder="Receiver Email" required="">
+        <textarea name="message" placeholder="Message" rows="5" required=""></textarea>
+        <input type="date" name="date" placeholder="Date" required="">
+        <br></br>
+        <input type="file" name="image" required="">
+        
+
+        <br><button type="submit">Submit</button></br>
+
+        </form>
+    </div> 
+</body>
+</html>
